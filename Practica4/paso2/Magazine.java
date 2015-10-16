@@ -16,7 +16,7 @@ public class Magazine extends Material{
 */
 	public Magazine(String name, double cost, int number){
 		super(name,cost);
-		this.name = name;
+		this.number = number;
 	}
 /**
 * Método que regresa el numero de la revista

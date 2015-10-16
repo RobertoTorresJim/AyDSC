@@ -27,9 +27,11 @@ public class Aplication{
 		Book book1 = new Book("Diary of a Zombie", author1,30);
 		Book book2 = new Book("El Yermo", author1, 40);
 		Book book3 = new Book("Lord of the rings", author2, 90);
+		Book book4 = new Book("Prueba",author1,70);
 		bs.addBook(book1);
 		bs.addBook(book2);
 		bs.addBook(book3);
+		bs.addBook(book4);
 		System.out.println("Cantidad de libros: " + bs.booksNumber());
 		Book[] galery = bs.getBooks();
 		for(int i = 0; i<galery.length; i++){

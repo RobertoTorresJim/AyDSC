@@ -18,6 +18,7 @@ public abstract class Material{
 		this.cost = cost;
 	}
 	public abstract double getCost();
+	
 	public String getName(){
 		return name;
 	}	

@@ -1,4 +1,4 @@
-package mx.uam.ayd.practica4;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -23,26 +23,75 @@ import java.io.InputStreamReader;
 			System.out.println("2.- Buscar un material");
 			System.out.println("3.- Eliminar un material");
 			System.out.println("4.- Listar todos los materiales");
-		do {
-			System.out.println("Escoge una opcion (0 para salir)?");
-			opcion = leeEntero();
-		} while(opcion < 0 || opcion > 4);
+			do {
+				System.out.println("Escoge una opcion (0 para salir)?");
+				opcion = leeEntero();
+			} while(opcion < 0 || opcion > 4);
 			switch(opcion) {
 				case 1:
-					System.out.println("¿Que tipo de material desea agregar?");
-					System.out.println("1.- Libro");
-					System.out.println("2.- Revista");
+					
+						System.out.println("¿Que tipo de material desea agregar?");
+						System.out.println("1.- Libro");
+						System.out.println("2.- Revista");
+						do{
+							opcion = leeEntero();
+						}while(opcion < 1 || opcion > 2);
+						switch(opcion){
+							case 1:
+								Book b;
+								System.out.println("Nombre del libro: ");
+								String name = leeCadena();
+								System.out.println("Costo del libro");
+								double cost = leeDoble();
+								Author auth;
+								System.out.println("Nombre del Autor: ");
+								String aName = leeCadena();
+								System.out.println("Apellido del autor: ");
+								String lName = leeCadena();
+								System.out.println("Año de nacimiento del autor: ");
+								opcion = leeEntero();
+								auth = new Author(aName, lName,opcion);
+								b = new Book(name,auth, cost);
+								bookstore.addMaterial(b);
+							break;
+							case 2:
+								Magazine mag;
+								System.out.println("Nombre de la revista: ");
+								name = leeCadena();
+								System.out.println("Costo de la revista: ");
+								cost = leeDoble();
+								System.out.println("Numero de la revista: ");
+								opcion = leeEntero();
+								mag = new Magazine(name, cost, opcion);
+								bookstore.addMaterial(mag);
+							break;	
+						 }
+					break;	
+				case 2:	
+					// Buscar material
+					System.out.println("Nombre del material: ");
+					String name = leeCadena();
+					Material [] mat = bookstore.findMaterialsByContentName(name);
+					for(Material m : mat){
+						System.out.println(m);
+					}
+					break;
+					
+				case 3:
+					// Eliminar material
+					System.out.println("Nombre completo del material a eliminar: ");
+					name = leeCadena();
+					mat = bookstore.findMaterialsByContentName(name);
+					if(bookstore.removeMaterial(mat[0]));
+						System.out.println("Material eliminado");
 					
 					break;
-				case 2:
-					// Completar
-					break;
-				case 3:
-					// Completar
-					break;
+					
 				case 4:
 					listaMateriales(bookstore.getMaterials());
+					
 					break;
+					
 			}
 		}while(opcion != 0);
 	}

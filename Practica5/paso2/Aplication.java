@@ -6,7 +6,7 @@
 */
 
 public class Aplication{
-	Bookstore bs = new Bookstore();	
+	Bookstore bs = new Bookstore();
 	public static void main(String[] args){
 		Aplication app = new Aplication();
 		//inicia la aplicación
@@ -24,5 +24,6 @@ public class Aplication{
 	public void init(){
 		Menu menu = new Menu();
 		menu.despliegaMenu();
+		new Ventana();
 	}
 }

@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 * Author: Roberto Torres Jiménez
 * Clase ventana de la practica 5 de la materia AyDSC
 */
-public class Ventana extends JFrame {
+public class Window extends JFrame {
 
 	JButton jButtonAddBook;
 	JButton jButtonAddMagazine;
@@ -21,7 +21,7 @@ public class Ventana extends JFrame {
 	JPanel jPanelBody;
 	JLabel jTitle;
 
-	public Ventana() throws HeadlessException{
+	public Window() throws HeadlessException{
 				jButtonAddBook = new JButton("Agregar Libro");
 				jButtonAddMagazine = new JButton("Agregar Revista");
 				jButtonAddAuthor = new JButton("Agregar Author");

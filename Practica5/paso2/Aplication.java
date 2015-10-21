@@ -25,5 +25,6 @@ public class Aplication{
 		Menu menu = new Menu();
 		menu.despliegaMenu();
 		new Ventana();
+		new AddWindow();
 	}
 }

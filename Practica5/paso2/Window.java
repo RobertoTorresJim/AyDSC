@@ -20,8 +20,10 @@ public class Window extends JFrame {
 	JButton jButtonShowMaterial;
 	JPanel jPanelBody;
 	JLabel jTitle;
+	Aplication app;
 
-	public Window() throws HeadlessException{
+	public Window(Aplication app) throws HeadlessException{
+				this.app = app;
 				jButtonAddBook = new JButton("Agregar Libro");
 				jButtonAddMagazine = new JButton("Agregar Revista");
 				jButtonAddAuthor = new JButton("Agregar Author");
@@ -47,5 +49,8 @@ public class Window extends JFrame {
 				setLocationRelativeTo(null);
 				setVisible(true);
 				setDefaultCloseOperation(EXIT_ON_CLOSE);
+	}
+	public void actionPerformed(java.awt.event.ActionEvent e){
+		app.
 	}
 }

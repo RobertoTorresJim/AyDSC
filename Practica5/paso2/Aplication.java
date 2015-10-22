@@ -23,8 +23,26 @@ public class Aplication{
 */
 	public void init(){
 		Menu menu = new Menu();
+		Window win = new Window(this);
 		menu.despliegaMenu();
-		new Ventana();
-		new AddWindow();
 	}
+	public void addAuthor(){
+		System.out.println("Se añadio autor");
+	}
+	public void addBook(){
+		System.out.println("Se añadio un libro");
+	}
+	public void addMagazine(){
+		System.out.println("Se añadio una revista");
+	}
+	public void addMaterial(){
+		System.out.println("Se añadio un material");
+	}
+	public void removeMaterial(){
+		System.out.println("Se elimino un material");
+	}
+	public void showMaterial(){
+		System.out.println("Se mostraron los materiales");
+	}
+
 }

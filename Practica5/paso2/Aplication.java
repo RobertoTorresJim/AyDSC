@@ -7,6 +7,7 @@
 
 public class Aplication{
 	Bookstore bs = new Bookstore();
+	Window win;
 	public static void main(String[] args){
 		Aplication app = new Aplication();
 		//inicia la aplicación
@@ -22,9 +23,7 @@ public class Aplication{
 * Este metodo inicia la aplicación
 */
 	public void init(){
-		Menu menu = new Menu();
-		Window win = new Window(this);
-		menu.despliegaMenu();
+		win = new Window(this);
 	}
 	public void addAuthor(){
 		System.out.println("Se añadio autor");
@@ -34,6 +33,8 @@ public class Aplication{
 	}
 	public void addMagazine(){
 		System.out.println("Se añadio una revista");
+		AddMagazineControl magControl = new AddMagazineControl(bs);
+		magControl.init();
 	}
 	public void addMaterial(){
 		System.out.println("Se añadio un material");
@@ -43,6 +44,9 @@ public class Aplication{
 	}
 	public void showMaterial(){
 		System.out.println("Se mostraron los materiales");
+	}
+	public void findMaterial(){
+		System.out.println("Se busco material");
 	}
 
 }

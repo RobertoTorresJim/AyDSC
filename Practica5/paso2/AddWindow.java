@@ -1,22 +1,29 @@
-/**
-* Author: Roberto Torres Jiménez
-*
-* Clase AddWindow de la practica 5 de la materia AyDSC
-*/
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.HeadlessException;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
+/**
+* Author: Roberto Torres Jiménez
+*
+* Clase AddWindow de la practica 5 de la materia AyDSC
+*/
 
 //Clase que extiene de una clase JFrame para funcionar como una ventana
-public class AddWindow extends JFrame{
+public class AddWindow extends JFrame implements ActionListener{
 	private static final long serialVersionUID = 4L;
-
+//Objeto creado para distinguir los eventos
+	Object object;
 //Creación de las cajas de texto de la ventana
 	JTextField jTextFieldName;
 	JTextField jTextFieldCost;
@@ -32,8 +39,11 @@ public class AddWindow extends JFrame{
 	JLabel jLabelTitulo;
 //Creación de un panel donde se contendra todo el contenido de la ventana
 	JPanel jPanelBody;
+//Creación de un objeto de la clase AddMagazineControl
+	AddMagazineControl magControl;
 //constructor de la clase
 	public AddWindow(AddMagazineControl magControl) throws HeadlessException{
+		this.magControl = magControl;
 //inicialización de las cajas de texto
 		jTextFieldNumber = new JTextField(10);
 		jTextFieldCost = new JTextField(10);
@@ -78,11 +88,26 @@ public class AddWindow extends JFrame{
 		jPanelBody.add(jLabelNumber);
 		jPanelBody.add(jButtonAccept);
 		jPanelBody.add(jButtonCancel);
+//Llamado al evento del boton aceptar
+		jButtonAccept.addActionListener(this);
 //Centra la ventana en la parte central de la pantalla
 		setLocationRelativeTo(null);
 //Hace visible la ventana
 		setVisible(true);
+		/* NO UTILIZADO */
 //Termina el programa al cerrar la ventana
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+//	setDefaultCloseOperation(EXIT_ON_CLOSE);
+	}
+	public void actionPerformed(ActionEvent e){
+		object = e.getSource();
+		if(object == jButtonAccept){
+			System.out.println("Se reconocio aceptar");
+			String name = jTextFieldName.getText(); // getText regresa el texto del campo
+			double cost = Double.parseDouble(jTextFieldCost.getText()); //convierte a doble
+			int number = Integer.parseInt(jTextFieldNumber.getText()); // convierte a entero
+			magControl.addMagazine(name, cost, number);
+			System.out.println("Se preciono Aceptar");
+			setVisible(false); // cierra la ventana
+		}
 	}
 }

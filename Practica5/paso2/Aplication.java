@@ -32,9 +32,9 @@ public class Aplication{
 		System.out.println("Se añadio un libro");
 	}
 	public void addMagazine(){
-		System.out.println("Se añadio una revista");
 		AddMagazineControl magControl = new AddMagazineControl(bs);
 		magControl.init();
+		System.out.println("Se añadio una revista");
 	}
 	public void addMaterial(){
 		System.out.println("Se añadio un material");

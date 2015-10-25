@@ -90,6 +90,7 @@ public class AddWindow extends JFrame implements ActionListener{
 		jPanelBody.add(jButtonCancel);
 //Llamado al evento del boton aceptar
 		jButtonAccept.addActionListener(this);
+		jButtonCancel.addActionListener(this);
 //Centra la ventana en la parte central de la pantalla
 		setLocationRelativeTo(null);
 //Hace visible la ventana
@@ -101,13 +102,14 @@ public class AddWindow extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent e){
 		object = e.getSource();
 		if(object == jButtonAccept){
-			System.out.println("Se reconocio aceptar");
 			String name = jTextFieldName.getText(); // getText regresa el texto del campo
 			double cost = Double.parseDouble(jTextFieldCost.getText()); //convierte a doble
 			int number = Integer.parseInt(jTextFieldNumber.getText()); // convierte a entero
 			magControl.addMagazine(name, cost, number);
-			System.out.println("Se preciono Aceptar");
 			setVisible(false); // cierra la ventana
+		}
+		if(object == jButtonCancel){
+			setVisible(false);
 		}
 	}
 }

@@ -13,7 +13,8 @@ public class AddMagazineControl{
     win = new AddWindow(this);
   }
   public boolean addMagazine(String name, double cost, int number){
-    System.out.println("Entro al metodo");
+    Magazine mag = new Magazine(name, cost, number);
+    bs.addMaterial(mag);
     return true;
   }
 }

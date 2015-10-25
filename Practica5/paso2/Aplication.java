@@ -43,7 +43,9 @@ public class Aplication{
 		System.out.println("Se elimino un material");
 	}
 	public void showMaterial(){
-		System.out.println("Se mostraron los materiales");
+		for(Material mat : bs.getMaterials()){
+			System.out.println(mat.toString());
+		}
 	}
 	public void findMaterial(){
 		System.out.println("Se busco material");

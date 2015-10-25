@@ -9,7 +9,7 @@ public class Magazine extends Material{
 * Constructor vacio de la clase
 */
 	public Magazine(){
-	//Nada que inicializar	
+	//Nada que inicializar
 	}
 /**
 * Constructor de la clase que recibe tres parametros
@@ -35,6 +35,6 @@ public class Magazine extends Material{
 * Metodo toString que regresa los datos de la revista en forma de cadena
 */
 	public String toString(){
-		return "Revista: " +name+ " " +"Numero: " +number+ " " +cost;
+		return "Revista: " +name+ " " +"Numero: " +number+ " " +"Costo: " +cost;
 	}
 }

@@ -7,6 +7,7 @@
 
 public class Aplication{
 	Bookstore bs = new Bookstore();
+	DAOAuthor DAO = new DAOAuthor();
 	Window win;
 	public static void main(String[] args){
 		Aplication app = new Aplication();
@@ -30,6 +31,8 @@ public class Aplication{
 	/*TODOS LOS METODOS SIGUIENTES IMPRIMEN UN MENSAJE PARA VER EL CORRECTO FUNCIONAMIENTO
 	* DE LOS BOTONES DE LA CLASE WINDOW*/
 	public void addAuthor(){
+		AddAuthorControl authControl = new AddAuthorControl(DAO);
+		authControl.init();
 		System.out.println("Se añadio autor");
 	}
 	public void addBook(){

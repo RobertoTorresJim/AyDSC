@@ -1,5 +1,5 @@
+
 import java.awt.BorderLayout;
-import java.awt.GridLayout;
 import java.awt.HeadlessException;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -17,7 +17,11 @@ import java.awt.event.ActionListener;
 //Clase que extiene de una clase jFrame
 public class AddAuthor extends JFrame implements ActionListener{
 
-  //Objeto creado para distinguir los eventos
+  /**
+	 *
+	 */
+	private static final long serialVersionUID = 1L;
+//Objeto creado para distinguir los eventos
   Object object;
   //Creación de las cajas de texto de la ventana
   JTextField jTextFieldName;
@@ -109,7 +113,7 @@ public class AddAuthor extends JFrame implements ActionListener{
         String name = jTextFieldName.getText(); // getText regresa el texto del campo
         String lastName = jTextFieldLastName.getText(); //getText regresa el texto al campo
         int bornYear = Integer.parseInt(jTextFieldBornYear.getText()); // convierte a entero
-        authControl.addAuthor(name, lastName, bornYear);
+        authControl.AddAuthor(name, lastName, bornYear);
         setVisible(false); // cierra la ventana
       }
     }

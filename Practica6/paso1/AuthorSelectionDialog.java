@@ -1,9 +1,8 @@
+
 import javax.swing.DefaultListModel;
 import javax.swing.JPanel;
 import java.awt.Frame;
-import java.awt.BorderLayout;
 import javax.swing.JDialog;
-import java.awt.Dimension;
 import javax.swing.JList;
 import java.awt.Rectangle;
 import javax.swing.JButton;
@@ -13,16 +12,15 @@ import javax.swing.JButton;
 public class AuthorSelectionDialog extends JDialog {
   private static final long serialVersionUID = 1L;
   private JPanel jContentPane = null;
-  private JList jListAutores = null;
+  private JList<Author> jListAutores = null;
   private JButton jButtonAceptar = null;
-  private Author[] autors;
   /**
   * @param owner
   */
   public AuthorSelectionDialog(Frame owner, Author autors[]) {
     super(owner,true);
     initialize();
-    DefaultListModel model = new DefaultListModel();
+    DefaultListModel<Author> model = new DefaultListModel<Author>();
     for(Author a:autors) {
       System.out.println("Se entro al metodo AuthorSelectionDialog");
       model.addElement(a);
@@ -58,9 +56,9 @@ public class AuthorSelectionDialog extends JDialog {
   *
   * @return javax.swing.JList
   */
-  private JList getJListAutores() {
+  private JList<Author> getJListAutores() {
     if (jListAutores == null) {
-      jListAutores = new JList();
+      jListAutores = new JList<Author>();
       jListAutores.setBounds(new Rectangle(15, 15, 362, 190));
     }
     return jListAutores;

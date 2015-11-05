@@ -1,12 +1,11 @@
+
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JFrame;
-import java.awt.Dimension;
 import javax.swing.JLabel;
 import java.awt.Rectangle;
 import javax.swing.JTextField;
 import javax.swing.JButton;
-import java.awt.BorderLayout;
 
 /**
 * Author: Roberto Torres Jiménez

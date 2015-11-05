@@ -1,3 +1,4 @@
+
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.HeadlessException;
@@ -14,7 +15,11 @@ import java.awt.event.ActionListener;
 */
 //Inicio de la clase Window
 public class Window extends JFrame implements ActionListener{
-//Creación de los elementos contenidos en la ventana
+/**
+	 *
+	 */
+	private static final long serialVersionUID = 1L;
+	//Creación de los elementos contenidos en la ventana
 	JButton jButtonAddBook;
 	JButton jButtonAddMagazine;
 	JButton jButtonFindMaterial;

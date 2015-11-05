@@ -109,7 +109,6 @@ public class AddAuthor extends JFrame implements ActionListener{
         String name = jTextFieldName.getText(); // getText regresa el texto del campo
         String lastName = jTextFieldLastName.getText(); //getText regresa el texto al campo
         int bornYear = Integer.parseInt(jTextFieldBornYear.getText()); // convierte a entero
-        authControl.addAuthor(name, lastName, bornYear);
         setVisible(false); // cierra la ventana
       }
     }

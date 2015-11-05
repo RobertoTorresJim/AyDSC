@@ -9,6 +9,7 @@ public class Aplication{
 	Bookstore bs = new Bookstore();
 	DAOAuthor DAO = new DAOAuthor();
 	Window win;
+	AddBookWindow winb;
 	public static void main(String[] args){
 		Aplication app = new Aplication();
 		//inicia la aplicación
@@ -27,6 +28,7 @@ public class Aplication{
 	public void init(){
 		//crea una ventwna de tipo window que recibe como referencia esta clase
 		win = new Window(this);
+		
 	}
 	/*TODOS LOS METODOS SIGUIENTES IMPRIMEN UN MENSAJE PARA VER EL CORRECTO FUNCIONAMIENTO
 	* DE LOS BOTONES DE LA CLASE WINDOW*/

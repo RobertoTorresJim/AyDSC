@@ -4,10 +4,10 @@
 */import javax.swing.JFrame;
 
 public class AddBookControl {
-  private Bookstore bookstore;
-  private DAOAuthor authors;
-  private AddBookWindow win;
-  public ControlAgregarLibro(Bookstore bookstore, DAOAuthor authors) {
+   Bookstore bookstore;
+   DAOAuthor authors;
+   AddBookWindow win;
+  public AddBookControl(Bookstore bookstore, DAOAuthor authors) {
     // implementar
     this.bookstore = bookstore;
     this.authors = authors;
@@ -15,16 +15,17 @@ public class AddBookControl {
   public void init() {
     // implementar
     win = new AddBookWindow(this);
+    win.setVisible(true);
   }
-  public Autor buscarAutor() {
-    Author arregloAutores[] = authors.getAuthors(); // Obtiene lista de autores
-    AuthorSelectionDialog dialogo = new AuthorSelectionDialog(new JFrame(),arregloAutores); // Crea eldialogo con la lista de autores
-    dialogo.setVisible(true); // Muestra el dialogo
-    return dialogo.getAutorSeleccionado(); // Regresa el autor seleccionado en el dialogo
+  public Author buscarAutor() {
+    Author arregloAutores[] = authors.getAuthors(); // Obtiene lista de autores
+    AuthorSelectionDialog dialogo = new AuthorSelectionDialog(new JFrame(),arregloAutores); // Crea eldialogo con la lista de autores
+    dialogo.setVisible(true); // Muestra el dialogo
+    return dialogo.getAutorSeleccionado(); // Regresa el autor seleccionado en el dialogo
   }
-  public boolean agregarLibro(String name, Double cost, Autor author) {
+  public boolean agregarLibro(String name, Author author, double cost) {
     // implementar
-    Book book = new Book(name, cost, author);
-    bookstore.addMaterial(book);
-    }
+    Book book = new Book(name, author, cost);
+    return bookstore.addMaterial(book);
+  }
 }

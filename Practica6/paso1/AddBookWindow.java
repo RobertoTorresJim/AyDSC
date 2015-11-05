@@ -1,4 +1,3 @@
-import java.awt.BorderLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JFrame;
@@ -7,6 +6,7 @@ import javax.swing.JLabel;
 import java.awt.Rectangle;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.BorderLayout;
 
 /**
 * Author: Roberto Torres Jiménez
@@ -17,15 +17,15 @@ public class AddBookWindow extends JFrame {
   private JPanel jContentPane = null;
   private JLabel jLabel = null;
   private JLabel jLabel1 = null;
-  private JTextField jTextFieldName  = null;
-  private JTextField jTextFieldCost = null;
-  private JLabel jLabelAuthor = null;
-  private JLabel jLabelAuthorName = null;
-  private JButton jButtonFindAuthor = null;
-  private JButton jButtonAccept = null;
-  private JButton jButtonCancel = null;
+  private JTextField jTextFieldNombre = null;
+  private JTextField jTextFieldPrecio = null;
+  private JLabel jLabelAutor = null;
+  private JLabel jLabelNombreAutor = null;
+  private JButton jButtonBuscarAutor = null;
+  private JButton jButtonAceptar = null;
+  private JButton jButtonCancelar = null;
   private AddBookControl control; // Control del caso de uso
-  private Author author; // Autor actualmente seleccionado
+  private Author autor; // Autor actualmente seleccionado
   /**
   * This is the default constructor
   */
@@ -51,12 +51,11 @@ public class AddBookWindow extends JFrame {
   */
   private JPanel getJContentPane() {
     if (jContentPane == null) {
-      jLabelNameAuthor = new JLabel();
-      jLabelAuthorName.setBounds(new Rectangle(136, 121, 205, 38));
-      jLabelAuthorName.setText("");
-      jLabelAuthor = new JLabel();
-      jLabelAuthor.setBounds(new Rectangle(31, 121, 96, 37));
-      jLabelAuthor.setText("Autor");
+      jLabelNombreAutor = new JLabel();
+      jLabelNombreAutor.setBounds(new Rectangle(136, 121, 205, 38));
+      jLabelNombreAutor.setText("");
+      jLabelAutor = new JLabel();jLabelAutor.setBounds(new Rectangle(31, 121, 96, 37));
+      jLabelAutor.setText("Autor");
       jLabel1 = new JLabel();
       jLabel1.setBounds(new Rectangle(32, 74, 192, 33));
       jLabel1.setText("Precio");
@@ -73,9 +72,9 @@ public class AddBookWindow extends JFrame {
       jContentPane.add(jLabelNombreAutor, null);
       jContentPane.add(getJButtonBuscarAutor(), null);
       jContentPane.add(getJButtonAceptar(), null);
-      jCo.setBounds(new Rectangle(235, 35, 199, 36));
+      jContentPane.add(getJButtonCancelar(), null);
     }
-    return jTextFieldNombre;
+    return jContentPane;
   }
   /**
 
@@ -83,12 +82,24 @@ public class AddBookWindow extends JFrame {
   *
   * @return javax.swing.JTextField
   */
-  private JTextField getJTextFieldPrecio() {
-    if (jTextFieldCost == null) {
-      jTextFieldCost = new JTextField();
-      jTextFieldCost.setBounds(new Rectangle(233, 76, 202, 31));
+  private JTextField getJTextFieldNombre() {
+    if (jTextFieldNombre == null) {
+      jTextFieldNombre = new JTextField();
+      jTextFieldNombre.setBounds(new Rectangle(235, 35, 199, 36));
     }
-    return jTextFieldCost;
+    return jTextFieldNombre;
+  }
+  /**
+  * This method initializes jTextFieldPrecio
+  *
+  * @return javax.swing.JTextField
+  */
+  private JTextField getJTextFieldPrecio() {
+    if (jTextFieldPrecio == null) {
+      jTextFieldPrecio = new JTextField();
+      jTextFieldPrecio.setBounds(new Rectangle(233, 76, 202, 31));
+    }
+    return jTextFieldPrecio;
   }
   /**
   * This method initializes jButtonBuscarAutor
@@ -96,20 +107,20 @@ public class AddBookWindow extends JFrame {
   * @return javax.swing.JButton
   */
   private JButton getJButtonBuscarAutor() {
-    if (jButtonFindAuthor == null) {
-      jButtonFindAuthor= new JButton();
-      jButtonFindAuthor.setBounds(new Rectangle(347, 120, 86, 40));
-      jButtonFindAuthor.setText("Buscar");
-      jButtonFindAuthor.addActionListener(new java.awt.event.ActionListener() {
+    if (jButtonBuscarAutor == null) {
+      jButtonBuscarAutor = new JButton();
+      jButtonBuscarAutor.setBounds(new Rectangle(347, 120, 86, 40));
+      jButtonBuscarAutor.setText("Buscar");
+      jButtonBuscarAutor.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent e) {
-          author = control.buscarAutor();
-          if(author != null) {
-            jLabelAuthorName.setText(author.toString()); //Muestra el nombre del autor actualmente seleccionad
+          autor = control.buscarAutor();
+          if(autor != null) {
+            jLabelNombreAutor.setText(autor.toString()); //Muestra el nombre del autor actualmente seleccionado
           }
         }
       });
     }
-    return jButtonFindAuthor;
+    return jButtonBuscarAutor;
   }
   /**
   * This method initializes jButtonAceptar
@@ -118,43 +129,42 @@ public class AddBookWindow extends JFrame {
   */
   private JButton getJButtonAceptar() {
     if (jButtonAceptar == null) {
-      jButtonAccept = new JButton();
-      jButtonAccept.setBounds(new Rectangle(199, 170, 114, 37));
-      jButtonAccept.setText("Aceptar");
-      jButtonAccept.addActionListener(new java.awt.event.ActionListener() {
+      jButtonAceptar = new JButton();
+      jButtonAceptar.setBounds(new Rectangle(199, 170, 114, 37));
+      jButtonAceptar.setText("Aceptar");
+      jButtonAceptar.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent e) {
-          String name = jTextFieldName.getText(); // getTextregresa el texto del campo
+          String nombre = jTextFieldNombre.getText(); // getText regresa el texto del campo
           // Validaciones
-          if(name.equals("") || author == null) {
-            JOptionPane.showMessageDialog (null, "El nombre está
-            vacio o no se selecciono autor");
+          if(nombre.equals("") || autor == null) {
+            JOptionPane.showMessageDialog (null, "El nombre está vacio o no se selecciono autor");
           } else {
-            double cost =
+            double precio =
             Double.parseDouble(jTextFieldPrecio.getText()); //convierte a doble
-            control.addBook(name, cost, author);
+            control.agregarLibro(nombre, autor, precio);
             setVisible(false); // cierra la ventana
           }
         }
       });
     }
-    return jButtonAccept;
+    return jButtonAceptar;
   }
   /**
   * This method initializes jButtonCancelar
   *
   * @return javax.swing.JButton
   */
-  private JButton getJButtonCancel() {
-    if (jButtonCancel == null) {
-      jButtonCancel = new JButton();
-      jButtonCancel.setBounds(new Rectangle(328, 171, 104, 36));
-      jButtonCancel.setText("Cancelar");
-      jButtonCancel.addActionListener(new java.awt.event.ActionListener() {
+  private JButton getJButtonCancelar() {
+    if (jButtonCancelar == null) {
+      jButtonCancelar = new JButton();
+      jButtonCancelar.setBounds(new Rectangle(328, 171, 104, 36));
+      jButtonCancelar.setText("Cancelar");
+      jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent e) {
           setVisible(false);
         }
       });
     }
-    return jButtonCancel;
+    return jButtonCancelar;
   }
 } // @jve:decl-index=0:visual-constraint="10,10"

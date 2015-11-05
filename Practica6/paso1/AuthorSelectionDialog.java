@@ -13,20 +13,21 @@ import javax.swing.JButton;
 public class AuthorSelectionDialog extends JDialog {
   private static final long serialVersionUID = 1L;
   private JPanel jContentPane = null;
-  private JList jListAutors = null;
+  private JList jListAutores = null;
   private JButton jButtonAceptar = null;
   private Author[] autors;
   /**
   * @param owner
   */
-  public DialogoSeleccionAutor(Frame owner, Author autors[]) {
+  public AuthorSelectionDialog(Frame owner, Author autors[]) {
     super(owner,true);
     initialize();
     DefaultListModel model = new DefaultListModel();
     for(Author a:autors) {
+      System.out.println("Se entro al metodo AuthorSelectionDialog");
       model.addElement(a);
     }
-    jListAutors.setModel(model);
+    jListAutores.setModel(model);
   }
   /**
   * This method initializes this
@@ -47,7 +48,7 @@ public class AuthorSelectionDialog extends JDialog {
     if (jContentPane == null) {
       jContentPane = new JPanel();
       jContentPane.setLayout(null);
-      jContentPane.add(getJListAutors(), null);
+      jContentPane.add(getJListAutores(), null);
       jContentPane.add(getJButtonAceptar(), null);
     }
     return jContentPane;
@@ -58,11 +59,11 @@ public class AuthorSelectionDialog extends JDialog {
   * @return javax.swing.JList
   */
   private JList getJListAutores() {
-    if (jListAutors == null) {
-      jListAutors = new JList();
-      jListAutors.setBounds(new Rectangle(15, 15, 362, 190));
+    if (jListAutores == null) {
+      jListAutores = new JList();
+      jListAutores.setBounds(new Rectangle(15, 15, 362, 190));
     }
-    return jListAutors;
+    return jListAutores;
   }
   /**
   * This method initializes jButtonAceptar

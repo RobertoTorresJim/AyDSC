@@ -12,7 +12,7 @@ import java.io.InputStreamReader;
 	// La libreria
 	private Bookstore bookstore;
 	// Atributo necesario para leer entrada desde la consola
-	private final BufferedReader in = new BufferedReader(new InputStreamReader(System.in)) ;
+	private final BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 	public Menu() {
 		bookstore = new Bookstore();
 	}

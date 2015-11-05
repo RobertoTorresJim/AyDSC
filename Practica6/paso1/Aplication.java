@@ -36,6 +36,8 @@ public class Aplication{
 		System.out.println("Se añadio autor");
 	}
 	public void addBook(){
+		AddBookControl bookControl = new AddBookControl(bs, DAO);
+		bookControl.init();
 		System.out.println("Se añadio un libro");
 	}
 	public void addMagazine(){

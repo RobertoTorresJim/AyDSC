@@ -33,7 +33,7 @@ public class Window extends JFrame implements ActionListener{
 //Inicialización de los botones de la ventana con su respectivo nombre
 		jButtonAddBook = new JButton("Agregar Libro");
 		jButtonAddMagazine = new JButton("Agregar Revista");
-		jButtonAddAuthor = new JButton("Agregar Author");
+		jButtonAddAuthor = new JButton("Agregar Autor");
 		jButtonFindMaterial = new JButton("Buscar Material");
 		jButtonRemoveMaterial = new JButton("Eliminar Material");
 		jButtonShowMaterial = new JButton("Listar Material");
